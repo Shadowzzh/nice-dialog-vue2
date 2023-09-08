@@ -1,11 +1,23 @@
 import Vue from 'vue';
-import { Button, Select, Dialog, MessageBox, Loading, Message, Input } from 'element-ui';
+import {
+  Button,
+  Select,
+  Dialog,
+  MessageBox,
+  Loading,
+  Message,
+  Input,
+  Table,
+  TableColumn
+} from 'element-ui';
 import App from './App.vue';
 
 Vue.use(Button);
 Vue.use(Dialog);
 Vue.use(Input);
 Vue.use(Select);
+Vue.use(Table);
+Vue.use(TableColumn);
 
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;
