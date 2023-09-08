@@ -3,6 +3,7 @@
     <Basic />
     <Props />
     <NoDestroy />
+    <Multiple />
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import Basic from './components/Basic';
 import Props from './components/Props';
 import NoDestroy from './components/NoDestroy';
+import Multiple from './components/Multiple';
 
 export default {
   name: 'App',
   components: {
     Basic,
     Props,
-    NoDestroy
+    NoDestroy,
+    Multiple
   }
 };
 </script>
