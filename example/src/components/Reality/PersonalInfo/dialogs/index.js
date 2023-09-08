@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-import { NiceDialog } from '@@/index';
+import NiceDialog from '@@/index';
 
 import Company from './Company.vue';
 import Project from './Project.vue';

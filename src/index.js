@@ -1,1 +1,2 @@
-export { NiceDialog } from './niceDialog.js';
+import NiceDialog from './niceDialog.js';
+export default NiceDialog

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export class NiceDialog {
+export default class NiceDialog {
   /** 缓存已经创建的Dialog标识 */
   static cache = new Set();
 

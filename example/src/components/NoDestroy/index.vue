@@ -4,7 +4,7 @@
 
 <script>
 import Vue from 'vue';
-import { NiceDialog } from '@@/index';
+import NiceDialog from '@@/index';
 import NoDestroyDialog from './dialog.vue';
 
 const NoDestroyDialogInstance = NiceDialog.create(
