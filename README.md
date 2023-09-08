@@ -42,7 +42,7 @@ export default {
     <template #footer >
       <el-button @click="onClose">取 消</el-button>
       <template-button type="primary" @click="onClose">确 定</el-button>
-    </span>
+    </template>
   </el-dialog>
 </template>
 
@@ -92,7 +92,7 @@ export default {
     <template #footer>
       <el-button @click="onClose">取 消</el-button>
       <template-button type="primary" @click="onClose">确 定</el-button>
-    </span>
+    </template>
   </el-dialog>
 </template>
 
