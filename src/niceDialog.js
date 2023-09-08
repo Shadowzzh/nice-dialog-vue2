@@ -51,7 +51,7 @@ export class NiceDialog {
     // 实例已经存在时，就不需要再次创建。通常是在destroy为false时
     if (this.instance) {
       const isOpen = await this.instance.onOpenBefore?.(); // 打开之前调用onOpenBefore
-      if (isOpen === false) return; // 如果返回false，就不打开Dialo
+      if (isOpen === false) return; // 如果返回false，就不打开Dialog
 
       this.instance.visible = true;
       return;
@@ -100,12 +100,10 @@ export class NiceDialog {
 
     // 如果设置了销毁组件，就卸载组件
     if (this.params.destroy) {
-      // 延时是为了在关闭动画执行完毕后卸载组件
       await new Promise((resolve) => {
+        // 因为关闭Dialog时有动画时间，所以需要等待动画结束后再卸载组件
         setTimeout(() => {
-          // 关闭之后
           this.instance.onCloseAfter?.();
-
           this.instance.$destroy();
           this.instance = null;
           this.params.parentDom.removeChild(this.container);
@@ -113,7 +111,6 @@ export class NiceDialog {
         }, this.params.duration);
       });
     } else {
-      // 关闭之后
       this.instance.onCloseAfter?.();
     }
 
