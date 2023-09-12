@@ -15,9 +15,9 @@
 
 - [基本使用](https://github.com/Shadowzzh/nice-dialog-vue2#基本使用)
 - [带参数](https://github.com/Shadowzzh/nice-dialog-vue2#带参数)
-- [带参数](https://github.com/Shadowzzh/nice-dialog-vue2#带参数)
 - [visible 或 destroy](https://github.com/Shadowzzh/nice-dialog-vue2#打开关闭时是否销毁重新创建组件还是只改变-visible)
 - [一次构建多个 Dialog 实例](https://github.com/Shadowzzh/nice-dialog-vue2#一次构建多个-dialog-实例)
+- [使用 Promise](https://github.com/Shadowzzh/nice-dialog-vue2#使用-Promise)
 - [实际项目中的使用](https://github.com/Shadowzzh/nice-dialog-vue2#实际项目中的使用)
 
 ## 主要功能
