@@ -163,6 +163,18 @@ import Vue from 'vue';
 const [Test1, Test2, Test3, Test4] = NiceDialog.create([Test, Test, Test, Test], undefined, Vue);
 ```
 
+### 使用Promise
+
+`example/src/components/Promise/index.vue`
+
+```jsx
+
+async onOpen() {
+  await PromiseDialog.open({ title: '明天', content: '你好' }, this)
+  this.$message.success('打开成功');
+}
+```
+
 ### 实际项目中的使用
 
 ![实际项目中的使用](./assets/examle_reality.png)
