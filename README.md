@@ -11,6 +11,15 @@
 代码借鉴了[Vue2 Dialog 弹窗函数式调用最佳实践](https://juejin.cn/post/7188056420212801591)。
 功能没[NiceModalReact](https://github.com/eBay/nice-modal-react)那么强大，只是用法相似。
 
+## 导航
+
+- [基本使用](https://github.com/Shadowzzh/nice-dialog-vue2#基本使用)
+- [带参数](https://github.com/Shadowzzh/nice-dialog-vue2#带参数)
+- [带参数](https://github.com/Shadowzzh/nice-dialog-vue2#带参数)
+- [visible 或 destroy](https://github.com/Shadowzzh/nice-dialog-vue2#打开关闭时是否销毁重新创建组件还是只改变-visible)
+- [一次构建多个 Dialog 实例](https://github.com/Shadowzzh/nice-dialog-vue2#一次构建多个-dialog-实例)
+- [实际项目中的使用](https://github.com/Shadowzzh/nice-dialog-vue2#实际项目中的使用)
+
 ## 主要功能
 
 ### 基本使用
@@ -163,7 +172,7 @@ const [Test1, Test2, Test3, Test4] = NiceDialog.create([Test, Test, Test, Test],
 表格“操作”列中，使用三个按钮触发，弹出不同弹窗；如下。
 
 - Project.vue [项目信息]
-- Company.vue  [机构信息]
+- Company.vue [机构信息]
 - Region.vue [地址信息]
 
 dialog/index.js
