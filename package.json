@@ -1,12 +1,20 @@
 {
   "name": "nice-dialog-vue2",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "vue2dialog方案",
+  "main": "dist/index.js",
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "rimraf ./dist && rollup -c"
   },
-  "author": "张子恒",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shadowzzh/nice-dialog-vue2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Shadowzzh/nice-dialog-vue2/issues"
+  },
+  "author": "zhangziheng",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.22.15",
