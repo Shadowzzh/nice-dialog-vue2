@@ -28,10 +28,10 @@
 
 ```jsx
 import Vue from 'vue';
-import NiceDialog from 'NiceDialog';
+import NiceDialog from 'nice-dialog-vue2';
 import Dialog from './dialog.vue';
 
-const dialogInstance = NiceDialog.create(Dialog, undefined, Vue);
+const dialogInstance = NiceDialog.create(Dialog);
 
 export default {
   methods: {
@@ -78,10 +78,10 @@ export default {
 
 ```jsx
 import Vue from 'vue';
-import NiceDialog from 'NiceDialog';
+import NiceDialog from 'nice-dialog-vue2';
 import Dialog from './dialog.vue';
 
-const dialogInstance = NiceDialog.create(Dialog, undefined, Vue);
+const dialogInstance = NiceDialog.create(Dialog);
 
 export default {
   methods: {
@@ -142,10 +142,10 @@ create 加上 destroy 参数。
 
 ```jsx
 import Vue from 'vue';
-import NiceDialog from 'NiceDialog';
+import NiceDialog from 'nice-dialog-vue2';
 import Dialog from './dialog.vue';
 
-const dialogInstance = NiceDialog.create(Dialog, { destroy: false }, Vue);
+const dialogInstance = NiceDialog.create(Dialog, { destroy: false });
 
 export default {
   methods: {
@@ -163,7 +163,7 @@ import Vue from 'vue';
 const [Test1, Test2, Test3, Test4] = NiceDialog.create([Test, Test, Test, Test], undefined, Vue);
 ```
 
-### 使用Promise
+### 使用 Promise
 
 `example/src/components/Promise/index.vue`
 
@@ -191,7 +191,7 @@ dialog/index.js
 
 ```jsx
 import Vue from 'vue';
-import NiceDialog from 'NiceDialog';
+import NiceDialog from 'nice-dialog-vue2';
 
 import Project from './Project.vue';
 import Region from './Region.vue';
