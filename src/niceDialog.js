@@ -1,5 +1,13 @@
 import Vue from 'vue';
 
+/** 创建Promise */
+const createPromise = () => {
+  let resolve, reject;
+  const promise = new Promise((r, j) => ((resolve = r), (reject = j)));
+
+  return [promise, resolve, reject];
+};
+
 export default class NiceDialog {
   /** 缓存已经创建的Dialog标识 */
   static cache = new Set();
@@ -48,13 +56,20 @@ export default class NiceDialog {
 
   /** 打开Dialog */
   async open(propsData = {}, parent = undefined) {
+    const [promise, resolve, reject] = createPromise();
+
     // 实例已经存在时，就不需要再次创建。通常是在destroy为false时
     if (this.instance) {
       const isOpen = await this.instance.onOpenBefore?.(); // 打开之前调用onOpenBefore
-      if (isOpen === false) return; // 如果返回false，就不打开Dialog
+      // 如果返回false，就不打开Dialog
+      if (isOpen === false) {
+        reject('cancel-open');
+        return promise;
+      }
 
       this.instance.visible = true;
-      return;
+      resolve();
+      return promise;
     }
 
     // el挂载到 -> container挂载到 -> parentDom(默认是body)
@@ -71,10 +86,17 @@ export default class NiceDialog {
       parent
     }).$mount(el);
 
-    if (typeof this.instance.visible !== 'boolean') return;
+    if (typeof this.instance.visible !== 'boolean') {
+      resolve();
+      return promise;
+    }
 
     const isOpen = await this.instance.onOpenBefore?.();
-    if (isOpen === false) return;
+
+    if (isOpen === false) {
+      reject('cancel-open');
+      return promise;
+    }
 
     // 监听visible变化，如果为false，就关闭Dialog
     this.instance.$watch('visible', async (visible) => {
@@ -82,17 +104,26 @@ export default class NiceDialog {
     });
 
     this.instance.$nextTick(() => (this.instance.visible = true));
+
+    await this.instance.onOpenAfter?.();
+    resolve();
+    return promise;
   }
 
   /** 关闭时Dialog */
   async close() {
-    // 关闭之前调用onCloseBefore
-    const isClose = this.instance.onCloseBefore?.();
-    if (isClose === false) return; // 如果返回false，就不关闭Dialog
+    const [promise, resolve, reject] = createPromise();
+
+    if (!this.instance) {
+      resolve();
+      return promise;
+    }
 
     // 如果已经销毁了，就不需要再次销毁
-    if (NiceDialog.cache.has(this.unique)) return;
-    if (!this.instance) return;
+    if (NiceDialog.cache.has(this.unique) || !this.instance) {
+      resolve();
+      return promise;
+    }
 
     NiceDialog.cache.add(this.unique);
 
@@ -100,20 +131,26 @@ export default class NiceDialog {
 
     // 如果设置了销毁组件，就卸载组件
     if (this.params.destroy) {
-      await new Promise((resolve) => {
-        // 因为关闭Dialog时有动画时间，所以需要等待动画结束后再卸载组件
-        setTimeout(() => {
-          this.instance.onCloseAfter?.();
-          this.instance.$destroy();
-          this.instance = null;
-          this.params.parentDom.removeChild(this.container);
-          resolve();
-        }, this.params.duration);
-      });
+      const [durationPromise, durationResolve] = createPromise();
+
+      // 因为关闭Dialog时有动画时间，所以需要等待动画结束后再卸载组件
+      setTimeout(async () => {
+        this.instance.onCloseAfter?.();
+        this.instance.$destroy();
+        this.instance = null;
+        this.params.parentDom.removeChild(this.container);
+        durationResolve();
+      }, this.params.duration);
+
+      // 这里等待的时间是【el-dialog的动画时长】+ onCloseAfter的执行时间】
+      await durationPromise;
     } else {
       this.instance.onCloseAfter?.();
     }
 
     NiceDialog.cache.delete(this.unique);
+
+    resolve();
+    return promise;
   }
 }
