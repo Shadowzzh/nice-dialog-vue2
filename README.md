@@ -27,7 +27,6 @@
 父组件使用
 
 ```jsx
-import Vue from 'vue';
 import NiceDialog from 'nice-dialog-vue2';
 import Dialog from './dialog.vue';
 
@@ -77,7 +76,6 @@ export default {
 父组件使用
 
 ```jsx
-import Vue from 'vue';
 import NiceDialog from 'nice-dialog-vue2';
 import Dialog from './dialog.vue';
 
@@ -141,7 +139,6 @@ create 加上 destroy 参数。
 父组件使用
 
 ```jsx
-import Vue from 'vue';
 import NiceDialog from 'nice-dialog-vue2';
 import Dialog from './dialog.vue';
 
@@ -159,8 +156,7 @@ export default {
 ### 一次构建多个 Dialog 实例
 
 ```jsx
-import Vue from 'vue';
-const [Test1, Test2, Test3, Test4] = NiceDialog.create([Test, Test, Test, Test], undefined, Vue);
+const [Test1, Test2, Test3, Test4] = NiceDialog.create([Test, Test, Test, Test]);
 ```
 
 ### 使用 Promise
@@ -190,7 +186,6 @@ async onOpen() {
 dialog/index.js
 
 ```jsx
-import Vue from 'vue';
 import NiceDialog from 'nice-dialog-vue2';
 
 import Project from './Project.vue';
@@ -199,8 +194,7 @@ import Company from './Company.vue';
 
 export const [CompanyDialog, ProjectDialog, RegionDialog] = NiceDialog.create(
   [Company, Project, Region],
-  { destroy: false },
-  Vue
+  { destroy: false }
 );
 ```
 
