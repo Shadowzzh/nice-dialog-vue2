@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-import NiceDialog from '@@/index';
+import NiceDialog from 'nice-dialog-vue2';
 import Promise from './Promise.vue';
 
-export const [PromiseDialog] = NiceDialog.create([Promise], undefined, Vue);
+export const [PromiseDialog] = NiceDialog.create([Promise]);

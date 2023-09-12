@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.32.1",
     "element-ui": "^2.15.14",
+    "nice-dialog-vue2": "^1.0.3",
     "vue": "^2.6.14"
   },
   "devDependencies": {

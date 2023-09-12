@@ -3,11 +3,10 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import NiceDialog from '@@/niceDialog.js';
+import NiceDialog from 'nice-dialog-vue2';
 import BasicDialog from './dialog.vue';
 
-const BasicDialogInstance = NiceDialog.create(BasicDialog, undefined, Vue);
+const BasicDialogInstance = NiceDialog.create(BasicDialog);
 
 export default {
   name: 'Basic',

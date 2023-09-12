@@ -4,16 +4,12 @@
 
 <script>
 import Vue from 'vue';
-import NiceDialog from '@@/index';
+import NiceDialog from 'nice-dialog-vue2';
 import NoDestroyDialog from './dialog.vue';
 
-const NoDestroyDialogInstance = NiceDialog.create(
-  NoDestroyDialog,
-  {
-    destroy: false
-  },
-  Vue
-);
+const NoDestroyDialogInstance = NiceDialog.create(NoDestroyDialog, {
+  destroy: false
+});
 
 export default {
   name: 'NoDestroy',
