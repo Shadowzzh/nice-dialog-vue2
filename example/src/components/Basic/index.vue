@@ -5,7 +5,6 @@
 <script>
 import Vue from 'vue';
 import NiceDialog from '@@/niceDialog.js';
-console.log(NiceDialog)
 import BasicDialog from './dialog.vue';
 
 const BasicDialogInstance = NiceDialog.create(BasicDialog, undefined, Vue);

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>Multiple</p>
     <el-button type="primary" @click="onOpenTest1('test1')">打开Test1</el-button>
     <el-button type="primary" @click="onOpenTest2('test2')">打开Test2</el-button>
     <el-button type="primary" @click="onOpenTest3('test3')">打开Test3</el-button>

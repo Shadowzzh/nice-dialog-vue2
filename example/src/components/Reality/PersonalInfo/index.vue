@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>实际应用</p>
     <el-table :data="tableData" border style="width: 100%">
       <el-table-column fixed prop="date" label="日期"> </el-table-column>
       <el-table-column prop="name" label="姓名"> </el-table-column>
