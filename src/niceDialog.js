@@ -37,7 +37,7 @@ export default class NiceDialog {
     this.params = mergeParams;
     this._VUE = _Vue ?? Vue;
 
-    if (!_Vue) {
+    if (!this._VUE) {
       throw new Error('NiceDialog组件，未找到vue对象。', _Vue);
     }
 
