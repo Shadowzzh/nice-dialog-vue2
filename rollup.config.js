@@ -4,6 +4,8 @@ const { defineConfig } = require('rollup');
 const vuePlugin = require('rollup-plugin-vue');
 const babelPlugin = require('@rollup/plugin-babel');
 const { terser: terserPlugin } = require('rollup-plugin-terser');
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
 
 module.exports = defineConfig([
   {
@@ -21,6 +23,8 @@ module.exports = defineConfig([
     },
 
     plugins: [
+      nodeResolve(),
+      commonjs(),
       vuePlugin({
         css: true,
         compileTemplate: true,
@@ -37,6 +41,6 @@ module.exports = defineConfig([
       terserPlugin()
     ],
 
-    external: [/^vue(\/.+|$)/]
+    external: ['vue']
   }
 ]);

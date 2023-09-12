@@ -1,6 +1,6 @@
 {
   "name": "nice-dialog-vue2",
-  "version": "0.0.1",
+  "version": "1.0.3",
   "description": "vue2dialog方案",
   "main": "dist/index.js",
   "scripts": {
@@ -20,6 +20,8 @@
     "@babel/core": "^7.22.15",
     "@babel/preset-env": "^7.22.15",
     "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.1",
     "@vue/compiler-sfc": "^3.3.4",
     "rimraf": "^5.0.1",
     "rollup": "^3.29.0",
